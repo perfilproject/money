@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>Gerador de números aleatórios</title>
+        <meta charset="utf-8"/>
+        <style type="text/css">
+            body {
+                background-color: #2F2F2F;
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #2974bb;
+                border: 2px solid #090638;
+            }
+            p {
+                margin: 35% 40%;
+                font-size: 35px;
+            }
+            .valores {
+                border: 2px solid rgb(16, 59, 114);
+                background: #5baef3;
+                font-size: 25px;
+                padding: 10px;
+                width: 200px;
+                margin: 0 auto;
+            }
+            .historico_compras {
+                font-size: 20px;
+                padding: 10px;
+                width: 200px;
+                margin: 0 auto;
+            }
+            .historico_vendas {
+                font-size: 20px;
+                padding: 10px;
+                width: 200px;
+                margin: 0 auto;
+            }
+            .botoes {
+                font-size: 15px;
+                padding: 10px;
+                width: 200px;
+                margin: 0 auto;
+                margin-top: 20px;
+                text-align: center;
+            }
+            .btn {
+                background-color: #ad1010; /* Green */
+                border: black;
+                color: rgb(0, 0, 0);
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
+</head>
+<body>
+    <div class="valores">Valor: <span id="valor">0</span></div>
+    <div class="historico_compras">Histórico de compras: <span id="compras">0</span></div>
+    <div class="historico_vendas">Histórico de vendas: <span id="vendas">0</span></div>
+    <div class="botoes">
+      <button type="button" onclick="comprar()">Comprar</button>
+      <button type="button" onclick="vender()">Vender</button>
+      <a href="indexI.html" class="btn">Segunda Pagina</a>
+    </div>
+    
+    <script>
+      let valor = 0;
+      let compras = 0;
+      let vendas = 0;
+
+      // Função para gerar um número aleatório de 1 a 10 a cada 10 segundos
+      setInterval(function() {
+        valor = Math.floor(Math.random() * 10) + 1;
+        document.getElementById("valor").innerHTML = valor;
+      }, 10000);
+
+      // Função para salvar o valor da box "valores" na box "historico_compras"
+      function comprar() {
+        compras += valor;
+        document.getElementById("compras").innerHTML = compras;
+      }
+
+      // Função para salvar o valor da box "valores" na box "historico_vendas"
+      function vender() {
+        vendas += valor;
+        document.getElementById("vendas").innerHTML = vendas;
+      }
+    </script>
+</body>
+</html>

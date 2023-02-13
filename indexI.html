@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Index</title>
+  <style>
+    body {
+      background: #323232;
+    }
+    .valores {
+      border: 2px solid red;
+      background: #ffcccc;
+    }
+    .historico_compras {
+      border: 2px solid red;
+      background: #ffcccc;
+    }
+    .historico_vendas {
+      border: 2px solid red;
+      background: #ffcccc;
+    }
+    #comprar {
+      background: #323232;
+      color: #ffffff;
+      font-size: 1.4em;
+      padding: 5px 10px;
+      border: 2px solid red;
+    }
+    #vender {
+      background: #323232;
+      color: #ffffff;
+      font-size: 1.4em;
+      padding: 5px 10px;
+      border: 2px solid red;
+    }
+    .btn {
+                background-color: #ad1010; /* Green */
+                border: black;
+                color: rgb(0, 0, 0);
+                padding: 12px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+  </style>
+  <script>
+    function getRandomNumber() {
+      var min = 1;
+      var max = 10;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    setInterval(function () {
+      document.getElementById('valores').innerHTML = getRandomNumber();
+    }, 10000);
+
+    function saveBuyValue() {
+      var list = document.getElementById("historico_compras");
+      var item = document.createElement("li");
+      item.appendChild(document.createTextNode(document.getElementById("valores").innerHTML));
+      list.appendChild(item);
+    }
+
+    function saveSellValue() {
+      var list = document.getElementById("historico_vendas");
+      var item = document.createElement("li");
+      item.appendChild(document.createTextNode(document.getElementById("valores").innerHTML));
+      list.appendChild(item);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Index</h1>
+  <div>
+    <p><b>Valores:</b> <span id="valores"></span></p>
+    <button id="comprar" onclick="saveBuyValue()">Comprar</button>
+    <button id="vender" onclick="saveSellValue()">Vender</button>
+    <a href="index.html" class="btn">Voltar</a>
+  </div>
+  <div>
+    <p><b>Histórico de compras:</b></p>
+    <ul id="historico_compras">
+    </ul>
+  </div>
+  <div>
+    <p><b>Histórico de vendas:</b></p>
+    <ul id="historico_vendas">
+    </ul>
+  </div>
+</body>
+
+</html>
